@@ -39,13 +39,13 @@ class Heap:
 
     def minHeapify(self, pos): 
         if not self.isLeaf(pos): 
-            if (self.Heap[pos] > self.Heap[self.leftChild(pos)] or self.Heap[pos] > self.Heap[self.rightChild(pos)]): 
-                if self.Heap[self.leftChild(pos)] < self.Heap[self.rightChild(pos)]: 
-                    self.swap(pos, self.leftChild(pos)) 
-                    self.minHeapify(self.leftChild(pos)) 
+            if self.heap[pos]['current_load'] > self.heap[self.left_child(pos)]['current_load'] or self.heap[pos]['current_load'] > self.heap[self.right_child(pos)]['current_load'] : 
+                if self.heap[self.left_child(pos)]['current_load'] < self.heap[self.right_child(pos)]['current_load']: 
+                    self.swap(pos, self.left_child(pos)) 
+                    self.minHeapify(self.left_child(pos)) 
                 else: 
-                    self.swap(pos, self.rightChild(pos)) 
-                    self.minHeapify(self.rightChild(pos)) 
+                    self.swap(pos, self.right_child(pos)) 
+                    self.minHeapify(self.right_child(pos)) 
 
     def minHeap(self): 
         for pos in range(self.size//2, 0, -1): 
