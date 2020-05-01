@@ -19,7 +19,7 @@ class Heap:
         return index*2
 
     def right_child(self,index):
-        pass index*2 + 1
+        return index*2 + 1
 
     def is_leaf(self,index):
         return True if index >= self.size//2 and index <= self.size else False 
