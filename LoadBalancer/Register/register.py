@@ -1,7 +1,7 @@
 import json
-from heap import Heap 
+from .heap import Heap 
 import pickle
-def get_server_list():
+def register_server():
     '''
     We Save All server instances here.
     Currently, Manually visit this function and append.
@@ -20,19 +20,23 @@ def get_server_list():
     heap.minHeap()
     list_servers = heap.heap
     pickle.dump(list_servers,open('server_list.pkl','wb'))
-    return list_servers
 
-def min_loaded_server():
+def get_server_list():
     '''
     This Returns Port Number of Server Instance with minimum load. 
     '''
-    server_list = pickle.load(open('server_list.pkl','rb'))
-    return server_list[0]
+    return pickle.load(open('server_list.pkl','rb'))
     
 
-def register_server():
+def min_loaded_server():
     '''
     This method will act as entry point while exposing endpoint to add servers.
     To be left blank for now.
+    '''
+    return get_server_list()[0]
+
+def update_pickle():
+    '''
+    This method will re-pickelize server list, since we will have modified serve count, uptime, etc.
     '''
     pass
