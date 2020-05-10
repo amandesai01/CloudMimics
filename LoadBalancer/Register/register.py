@@ -12,8 +12,8 @@ class Register():
         A seperate endpoint to be exposed later.
         Currently , this returns a list of servers ordered in ascending order based on server load. 
         '''
-        list_servers.append({
-            "url":"http://127.0.0.1:5000",
+        self.list_servers.append({
+            "url":"https://www.google.com",
             "is_active":True,
             "total_requests_served":0
         })
@@ -33,4 +33,8 @@ class Register():
         return
     
     def get_min_loaded_server(self):
-        return self.min_loaded_server
+        server = self.min_loaded_server
+        print(server)
+        self.min_loaded_server['total_requests_served'] += 1
+        self.update_min()
+        return server
