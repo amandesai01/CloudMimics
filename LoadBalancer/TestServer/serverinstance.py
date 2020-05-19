@@ -1,10 +1,9 @@
 from flask import Flask, jsonify
 from time import sleep
 import threading
+import sys
 
 app = Flask(__name__)
-
-PORT = 5005
 
 @app.route('/')
 def route():
@@ -15,4 +14,5 @@ def route():
     return jsonify({"status" : "served"})
 
 if __name__ == '__main__':
+    PORT = int(sys.argv[1])
     app.run(port=PORT)
