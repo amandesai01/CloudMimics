@@ -13,9 +13,7 @@ def check_servers():
             '''
             if not server['is_active']:
                 continue
-            if ping(server['url']):
-                server['is_active'] = True
-            else:
+            if not ping(server['url']):
                 server['is_active'] = False
         pickle.dump(register, open('register.pkl', 'wb'))
         time.sleep(2.5)
