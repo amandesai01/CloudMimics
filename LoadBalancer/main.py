@@ -1,4 +1,5 @@
 from flask import Flask, redirect
+from Register import register
 import pickle
 
 app = Flask(__name__)
