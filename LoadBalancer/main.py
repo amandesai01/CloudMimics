@@ -12,5 +12,11 @@ def balancer(path):
     return redirect(url)
     
 if __name__ == '__main__':
+    '''
+    Initial Pickle Script
+    '''
+    ref = register.Register()
+    ref.register_server()
+    pickle.dump(ref, open('register.pkl', 'wb'))
     app.run(port=4999, debug=True)
     

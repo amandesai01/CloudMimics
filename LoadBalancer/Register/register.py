@@ -13,10 +13,27 @@ class Register():
         Currently , this returns a list of servers ordered in ascending order based on server load. 
         '''
         self.list_servers.append({
-            "url":"https://www.google.com",
+            "url":"http://127.0.0.1:5005/",
             "is_active":True,
             "total_requests_served":0
         })
+        self.list_servers.append({
+            "url":"http://127.0.0.1:5006/",
+            "is_active":True,
+            "total_requests_served":0
+        })
+        self.list_servers.append({
+            "url":"http://127.0.0.1:5007/",
+            "is_active":True,
+            "total_requests_served":0
+        })
+        self.list_servers.append({
+            "url":"http://127.0.0.1:5008/",
+            "is_active":True,
+            "total_requests_served":0
+        })
+
+        self.min_loaded_server = self.list_servers[0]
 
         self.update_min()
         return
@@ -28,7 +45,7 @@ class Register():
 
     def update_min(self):
         for server in self.list_servers:
-            if server['total_requests_served'] < sys.maxsize:
+            if server['total_requests_served'] < self.min_loaded_server['total_requests_served']:
                 self.min_loaded_server = server
         return
     
